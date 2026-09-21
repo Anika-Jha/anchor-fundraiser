@@ -125,6 +125,7 @@ impl<'info> Contribute<'info> {
         //
         // Multiplication happens before division so that we do not lose
         // precision through integer division.
+        
         let quarters = self
             .fundraiser
             .current_amount
