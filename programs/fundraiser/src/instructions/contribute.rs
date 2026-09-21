@@ -21,6 +21,7 @@ use crate::{
 pub struct MilestoneReached {
     pub fundraiser: Pubkey,
     pub milestone: u8,
+    pub amount: u64,
 }
 
 #[derive(Accounts)]
@@ -141,6 +142,7 @@ impl<'info> Contribute<'info> {
                 emit!(MilestoneReached {
                     fundraiser: self.fundraiser.key(),
                     milestone: (i + 1) as u8,
+                    amount: self.fundraiser.current_amount,
                 });
             }
         }
